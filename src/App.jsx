@@ -11,7 +11,7 @@ import Progress from "./Progress.jsx"
 import FinishedScreen from "./FinishedScreen.jsx"
 import Footer from "./Footer.jsx"
 import Timer from "./Timer.jsx"
-const API = 'http://localhost:8000/questions'
+const API = 'https://json-server-iota-olive.vercel.app/questions'
 const SECS_PER_QUESTION = 30
 const initialState = { questions: [], status: 'loading', index: 0, answer: null, points: 0, highscore: 0, secondsRemaining: null }
 
