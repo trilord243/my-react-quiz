@@ -39,7 +39,7 @@ function reducer(state, action) {
       return { ...state, status: 'finish', highscore: state.points > state.highscore ? state.points : state.highscore }
 
     case 'restart':
-      return { ...state, status: 'active', index: 0, answer: null, points: 0, secondsRemaining: 10 }
+      return { ...state, status: 'active', index: 0, answer: null, points: 0, secondsRemaining: state.questions.length * SECS_PER_QUESTION }
 
     case 'tick':
       return { ...state, secondsRemaining: state.secondsRemaining - 1, status: state.secondsRemaining === 0 ? 'finish' : state.status }

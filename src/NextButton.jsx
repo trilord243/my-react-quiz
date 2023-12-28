@@ -4,7 +4,7 @@ export default function NextButton({ dispatch, answer, index, numQuestion }) {
 
     if (answer !== null && index + 1 < numQuestion) {
         return (
-            <button className='btn btn-ui' onClick={() => dispatch({ type: 'nextQuestion' })}>NextBurron</button>
+            <button className='btn btn-ui' onClick={() => dispatch({ type: 'nextQuestion' })}>Next</button>
         )
 
     } else if (index + 1 === numQuestion) {
