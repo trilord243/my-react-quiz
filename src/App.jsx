@@ -86,7 +86,7 @@ function App() {
         {status === 'ready' && <StartScreen numQuestions={numQuestions} dispatch={dispatch} />}
         {status === 'active' &&
           <>
-            <Progress maxPoints={maxPoints} poinst={points} index={index} numQuestion={numQuestions} />
+            <Progress answer={answer} maxPoints={maxPoints} poinst={points} index={index} numQuestion={numQuestions} />
             <Question answer={answer} dispatch={dispatch} question={questions[index]} />
 
 
