@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function FinishedScreen({ maxPoints, points, highscore }) {
+export default function FinishedScreen({ maxPoints, points, highscore, dispatch }) {
     let emoji;
     if (points / maxPoints < 0.5) {
         emoji = '😢'
@@ -15,7 +15,8 @@ export default function FinishedScreen({ maxPoints, points, highscore }) {
         <>
 
             <p className='result'>  {emoji} You scored  <strong> {points} </strong>     out of {maxPoints} ({Math.ceil(percentage)})%   </p>
-            <p className='highscore'> (Hihscore Points {highscore}) </p>
+            <p className='highscore'> (Highscore Points: {highscore}) </p>
+            <button className='btn btn-ui' onClick={() => dispatch({ type: 'restart' })} > Restart</button>
         </>
     )
 }
