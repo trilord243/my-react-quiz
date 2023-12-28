@@ -8,8 +8,9 @@ import StartScreen from "./StartScreen.jsx"
 import Question from "./Question.jsx"
 import NextButton from "./NextButton.jsx"
 import Progress from "./Progress.jsx"
+import FinishedScreen from "./FinishedScreen.jsx"
 const API = 'http://localhost:8000/questions'
-const initialState = { questions: [], status: 'loading', index: 0, answer: null, points: 0 }
+const initialState = { questions: [], status: 'loading', index: 0, answer: null, points: 0, highscore: 0 }
 
 
 function reducer(state, action) {
@@ -31,7 +32,8 @@ function reducer(state, action) {
     case 'nextQuestion':
       return { ...state, index: state.index + 1, answer: null }
 
-
+    case 'finish':
+      return { ...state, status: 'finish', highscore: state.points > state.highscore ? state.points : state.highscore }
     default:
       throw new Error(' ERROR ');
 
@@ -91,7 +93,7 @@ function App() {
 
 
 
-            <NextButton dispatch={dispatch} answer={answer} />
+            <NextButton index={index} numQuestion={numQuestions} dispatch={dispatch} answer={answer} />
 
 
 
@@ -99,7 +101,7 @@ function App() {
           </>}
 
 
-
+        {status === 'finish' && <FinishedScreen highscore={highscore} points={points} maxPoints={maxPoints} dispatch={dispatch} />}
 
       </MainComponent>
 
